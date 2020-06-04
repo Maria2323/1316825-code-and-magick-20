@@ -25,7 +25,6 @@ createWizard(characters, wizardCount);
 var similarListElement = document.querySelector('.setup-similar-list');
 var similarWizardTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
 
-
 var renderWizard = function (wizard) {
   var wizardElement = similarWizardTemplate.cloneNode(true);
 
@@ -36,11 +35,13 @@ var renderWizard = function (wizard) {
   return wizardElement;
 };
 
-var fragment = document.createDocumentFragment();
-
-for (var i = 0; i < characters.length; i++) {
-  fragment.appendChild(renderWizard(characters[i]));
-}
-similarListElement.appendChild(fragment);
+var addCharacters = function (list) {
+  var fragment = document.createDocumentFragment();
+  for (var i = 0; i < characters.length; i++) {
+    fragment.appendChild(renderWizard(characters[i]));
+  }
+  list.appendChild(fragment);
+};
+addCharacters(similarListElement);
 
 document.querySelector('.setup-similar').classList.remove('hidden');
