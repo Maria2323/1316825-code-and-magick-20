@@ -45,7 +45,7 @@ var addCharacters = function (list) {
 };
 for (var i = 0; i < wizardCount; i++) {
   characters.push(createWizards());
-};
+}
 
 addCharacters(similarListElement);
 
