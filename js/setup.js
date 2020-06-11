@@ -108,25 +108,24 @@ userNameField.addEventListener('blur', function () {
   document.addEventListener('keydown', onPopupEscPress);
 });
 
-var renderElementColor = function (elementColor, array) {
+var renderElementColor = function (elementColor, array, input) {
   elementColor.addEventListener('click', function () {
-    elementColor.style.fill = getRandomElement(array);
+    var color = getRandomElement(array);
+    elementColor.style.fill = color;
+    input.value = color;
   });
   return elementColor;
 };
 
-renderElementColor(wizardCoatColor, COAT_COLORS);
-renderElementColor(wizardEyesColor, EYES_COLORS);
-
-coatColorField.value = renderElementColor(wizardCoatColor, COAT_COLORS).style.fill;
-eyesColorField.value = renderElementColor(wizardEyesColor, EYES_COLORS).style.fill;
+renderElementColor(wizardCoatColor, COAT_COLORS, coatColorField);
+renderElementColor(wizardEyesColor, EYES_COLORS, eyesColorField);
 
 var renderFireballColor = function () {
   fireballBackgroundColor.addEventListener('click', function () {
-    fireballBackgroundColor.style.background = getRandomElement(FIREBALL_COLORS);
+    var colorFireball = getRandomElement(FIREBALL_COLORS);
+    fireballBackgroundColor.style.background = colorFireball;
+    fireballColorField.value = colorFireball;
   });
   return fireballBackgroundColor;
 };
 renderFireballColor();
-
-fireballColorField.value = renderFireballColor().style.background;
