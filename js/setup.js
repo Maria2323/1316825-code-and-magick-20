@@ -118,8 +118,8 @@ var renderElementColor = function (elementColor, array) {
 renderElementColor(wizardCoatColor, COAT_COLORS);
 renderElementColor(wizardEyesColor, EYES_COLORS);
 
-coatColorField.value = renderElementColor(wizardCoatColor, COAT_COLORS).fill;
-eyesColorField.value = renderElementColor(wizardEyesColor, EYES_COLORS).fill;
+coatColorField.value = renderElementColor(wizardCoatColor, COAT_COLORS).style.fill;
+eyesColorField.value = renderElementColor(wizardEyesColor, EYES_COLORS).style.fill;
 
 var renderFireballColor = function () {
   fireballBackgroundColor.addEventListener('click', function () {
@@ -129,4 +129,4 @@ var renderFireballColor = function () {
 };
 renderFireballColor();
 
-fireballColorField.value = renderFireballColor().background;
+fireballColorField.value = renderFireballColor().style.background;
