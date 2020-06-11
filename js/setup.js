@@ -114,7 +114,6 @@ var renderElementColor = function (elementColor, array, input) {
     elementColor.style.fill = color;
     input.value = color;
   });
-  return elementColor;
 };
 
 renderElementColor(wizardCoatColor, COAT_COLORS, coatColorField);
@@ -126,6 +125,5 @@ var renderFireballColor = function () {
     fireballBackgroundColor.style.background = colorFireball;
     fireballColorField.value = colorFireball;
   });
-  return fireballBackgroundColor;
 };
 renderFireballColor();
