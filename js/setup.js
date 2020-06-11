@@ -16,9 +16,9 @@ var wizardCoatColor = wizardStyle.querySelector('.wizard-coat');
 var wizardEyesColor = wizardStyle.querySelector('.wizard-eyes');
 var fireballBackgroundColor = userDialog.querySelector('.setup-fireball-wrap');
 
-var coatColorField = userDialog.querySelector([name = 'coat-color']);
-var eyesColorField = userDialog.querySelector([name = 'eyes-color']);
-var fireballColorField = userDialog.querySelector([name = 'fireball-color']);
+var coatColorField = userDialog.querySelector('input[name = "coat-color"]');
+var eyesColorField = userDialog.querySelector('input[name = "eyes-color"]');
+var fireballColorField = userDialog.querySelector('input[name = "fireball-color"]');
 
 var wizardCount = 4;
 var characters = [];
