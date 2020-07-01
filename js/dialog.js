@@ -90,7 +90,7 @@
     document.addEventListener('mouseup', onMouseUp);
   });
 
-  var form = userDialog.querySelector('setup-wizard-form');
+  var form = userDialog.querySelector('.setup-wizard-form');
   var onSubmit = function (evt) {
     window.backend.save(new FormData(form), function () {
       userDialog.classList.add('hidden');
