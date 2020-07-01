@@ -91,11 +91,11 @@
   });
 
   var form = userDialog.querySelector('setup-wizard-form');
-  form.addEventListener('submit', function (evt) {
-    window.backend.save(new FormData(userDialog), function (response) {
+  var onSubmit = function (evt) {
+    window.backend.save(new FormData(form), function () {
       userDialog.classList.add('hidden');
-    });
+    }, function () {});
     evt.preventDefault();
-  });
-
+  };
+  form.addEventListener('submit', onSubmit);
 })();
