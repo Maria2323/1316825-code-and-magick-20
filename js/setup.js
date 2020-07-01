@@ -46,18 +46,17 @@
     return wizardElement;
   };
 
-  var addCharacters = function (list) {
+  window.backend.load(function () {
     var fragment = document.createDocumentFragment();
     for (var i = 0; i < characters.length; i++) {
       fragment.appendChild(renderWizard(characters[i]));
     }
-    list.appendChild(fragment);
-  };
+    similarListElement.appendChild(fragment);
+  }, function () {});
+
   for (var i = 0; i < wizardCount; i++) {
     characters.push(createWizards());
   }
-
-  addCharacters(similarListElement);
 
   window.colorizeWizards(wizardCoatColor, COAT_COLORS, coatColorField);
   window.colorizeWizards(wizardEyesColor, EYES_COLORS, eyesColorField);
