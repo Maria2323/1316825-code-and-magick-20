@@ -8,11 +8,10 @@
 
   var renderWizard = function (wizards) {
     var wizardElement = similarWizardTemplate.cloneNode(true);
-    var wizard = wizardElement.querySelector('.wizard');
 
     wizardElement.querySelector('.setup-similar-label').textContent = wizards.name;
-    wizard.querySelector('.wizard-coat').style.fill = wizards.coatColor;
-    wizard.querySelector('.wizard-eyes').style.fill = wizards.eyesColor;
+    wizardElement.querySelector('.wizard-coat').style.fill = wizards.colorCoat;
+    wizardElement.querySelector('.wizard-eyes').style.fill = wizards.colorEyes;
 
     return wizardElement;
   };

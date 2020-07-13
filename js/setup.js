@@ -17,22 +17,17 @@
   var coatColorField = userDialog.querySelector('input[name = "coat-color"]');
   var eyesColorField = userDialog.querySelector('input[name = "eyes-color"]');
   var fireballColorField = userDialog.querySelector('input[name = "fireball-color"]');
-  var coatColor = 'rgb(101, 137, 164)';
-  var eyesColor = 'black';
 
   var updateWizards = function () {
     var sameCoatAndEyesWizards = characters.filter(function (it) {
-      return it.colorCoat === wizardCoatColor.style.fill && it.colorEyes === wizardEyesColor.style.fill;
+      return it.colorCoat === coatColorField.value && it.colorEyes === eyesColorField.value;
     });
-    console.log(sameCoatAndEyesWizards);
     var sameCoatWizards = characters.filter(function (it) {
-      return it.colorCoat === wizardCoatColor.style.fill;
+      return it.colorCoat === coatColorField.value;
     });
-    console.log(sameCoatWizards);
     var sameEyesWizards = characters.filter(function (it) {
-      return it.colorEyes === wizardEyesColor.style.fill;
+      return it.colorEyes === eyesColorField.value;
     });
-    console.log(sameEyesWizards);
     var filteredWizards = sameCoatAndEyesWizards;
     filteredWizards = filteredWizards.concat(sameCoatWizards);
     filteredWizards = filteredWizards.concat(sameEyesWizards);
@@ -42,6 +37,7 @@
       return filteredWizards.indexOf(it) === i;
     });
     window.render(uniqueWizards);
+    console.log(uniqueWizards);
   };
 
   window.backend.load(function (data) {
