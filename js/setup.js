@@ -18,26 +18,37 @@
   var eyesColorField = userDialog.querySelector('input[name = "eyes-color"]');
   var fireballColorField = userDialog.querySelector('input[name = "fireball-color"]');
 
-  var updateWizards = function () {
-    var sameCoatAndEyesWizards = characters.filter(function (it) {
-      return it.colorCoat === coatColorField.value && it.colorEyes === eyesColorField.value;
-    });
-    var sameCoatWizards = characters.filter(function (it) {
-      return it.colorCoat === coatColorField.value;
-    });
-    var sameEyesWizards = characters.filter(function (it) {
-      return it.colorEyes === eyesColorField.value;
-    });
-    var filteredWizards = sameCoatAndEyesWizards;
-    filteredWizards = filteredWizards.concat(sameCoatWizards);
-    filteredWizards = filteredWizards.concat(sameEyesWizards);
-    filteredWizards = filteredWizards.concat(characters);
+  var getRank = function (wizard) {
+    var rank = 0;
 
-    var uniqueWizards = filteredWizards.filter(function (it, i) {
-      return filteredWizards.indexOf(it) === i;
-    });
-    window.render(uniqueWizards);
-    console.log(uniqueWizards);
+    if (wizard.colorCoat === coatColorField.value) {
+      rank += 2;
+    }
+    if (wizard.colorEyes === eyesColorField.value) {
+      rank += 1;
+    }
+
+    return rank;
+  };
+
+  var namesComparator = function (left, right) {
+    if (left > right) {
+      return 1;
+    } else if (left < right) {
+      return -1;
+    } else {
+      return 0;
+    }
+  };
+
+  var updateWizards = function () {
+    window.render(characters.sort(function (left, right) {
+      var rankDiff = getRank(right) - getRank(left);
+      if (rankDiff === 0) {
+        rankDiff = namesComparator(left.name, right.name);
+      }
+      return rankDiff;
+    }));
   };
 
   window.backend.load(function (data) {
