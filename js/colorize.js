@@ -1,7 +1,6 @@
 'use strict';
 
 (function () {
-
   var getRandomElement = function (characteristic) {
     return characteristic[Math.round(Math.random() * (characteristic.length - 1))];
   };
@@ -16,6 +15,7 @@
         elementColor.style.fill = color;
         input.value = color;
       }
+      window.debounce(window.updateWizards());
     });
   };
 })();
