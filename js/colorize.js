@@ -15,7 +15,7 @@
         elementColor.style.fill = color;
         input.value = color;
       }
-      window.updateWizards();
+      window.debounce(window.updateWizards());
     });
   };
 })();
